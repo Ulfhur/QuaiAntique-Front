@@ -11986,14 +11986,15 @@ html {
 }
 
 main {
-  margin-bottom: 250px;
+  margin-bottom: 154px;
 }
 
 footer.footer {
-  padding: 15px;
+  padding: 12px;
   position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top: 0;
 }
 
 .hero-scene {
@@ -12019,4 +12020,34 @@ footer.footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.image-card {
+  position: relative;
+}
+.image-card:hover .titre-image {
+  opacity: 1;
+}
+.image-card:hover img {
+  filter: brightness(0.3);
+}
+.image-card img {
+  transition: all 0.3s;
+}
+.image-card .titre-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+main:after {
+  content: "";
+  float: left;
+}
+
+main div {
+  height: 100%;
 }/*# sourceMappingURL=main.css.map */
