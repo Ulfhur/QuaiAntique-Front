@@ -3,12 +3,16 @@
         <h1>La carte</h1>
     </div>
 </div>
+<div class="text-center mb-3" style="margin: 20px; justify-content: space-between;">
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditPlatModal">Modifier plats</a>
+        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeletePlatModal">Supprimer plats</a>
+    </div>
 <article>
     <div class="container p-4">
         <h2 class="text-center text-primary">Nos entrées</h2>
         <div class="row row-cols-2 align-items-center p-3">
             <div class="col-6 text-start">
-                <p>- Taboulé :<br>- Tapas Coup'faim :<br>- Salade :<br>- Tartines mixtes :<br>- Tartines charcuterie :
+                <p >- Taboulé :<br>- Tapas Coup'faim :<br>- Salade :<br>- Tartines mixtes :<br>- Tartines charcuterie :
                 </p>
             </div>
             <div class="col-6 text-end">
@@ -95,3 +99,55 @@
             <a href="#" class="btn btn-primary">Réserver</a>
         </div>
 </article>
+
+<!-- Modal edition -->
+<div class="modal fade" id="EditPlatModal" tabindex="-1" aria-labelledby="EditPlatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="EditPlatModalLabel">Edition Plat</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="NamePlatInput" class="form-label">Titre</label>
+                  <input type="text" class="form-control" id="NamePlatInput" placeholder="Lasagnes à la bolognese" name="Titre"> 
+                </div>
+                <div class="mb-3">
+                  <label for="PrixInput" class="form-label">Prix</label>
+                  <input type="text" class="form-control" id="PrixInput" placeholder="12,50 €" name="Prix"> 
+                </div>
+                <div class="text-center justify-content-between">
+                    <button type="button" class="btn btn-success">Enregistrer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal suppression -->
+<div class="modal fade" id="DeletePlatModal" tabindex="-1" aria-labelledby="DeletePlatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="DeletePlatModalLabel">Indiquez le plat à supprimer</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="NamePlatInput" class="form-label">Titre</label>
+                  <input type="text" class="form-control" id="NamePlatInput" placeholder="Lasagnes à la bolognese" name="Titre"> 
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-danger">Supprimer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
