@@ -1,0 +1,87 @@
+<div class="hero-scene text-center text-white">
+    <div class="hero-scene-content">
+        <h1>Mes réservations</h1>
+    </div>
+</div>
+<div>
+    <table class="table table-striped mt-5 mb-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Heure</th>
+                <th scope="col">Nombre de personnes</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>2024-07-15</td>
+                <td>19:30</td>
+                <td>4</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditResaModal">Modifier</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#DeleteResaModal">Annuler</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>2024-07-20</td>
+                <td>20:00</td>
+                <td>2</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm">Modifier</button>
+                    <button type="button" class="btn btn-danger btn-sm" >Annuler</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center mb-5">
+        <a href="/newResa" class="btn btn-primary">Nouvelle réservation</a>
+    </div>
+</div>
+
+<!-- Modal edition -->
+<div class="modal fade" id="EditResaModal" tabindex="-1" aria-labelledby="EditResaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="EditResaModalLabel">Modifier la date et/ou l'heure de la réservation #</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="updateDateForm">
+                <div class="mb-3">
+                  <label for="newDate" class="form-label">Choisir un nouveau créneau de réservation</label>
+                  <input type="date" class="form-control" id="newDate" name="newDate" required> 
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary">Modifier ma réservation</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal suppression -->
+<div class="modal fade" id="DeleteResaModal" tabindex="-1" aria-labelledby="DeleteResaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="DeleteResaModalLabel">Êtes-vous sûr de vouloir annuler cette réservation ?</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="deleteResaForm">
+                <input type="hidden" id="deleteResaId" name="deleteResaId" value="">
+                <div class="text-center">
+                    <button type="button" class="btn btn-danger">Supprimer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

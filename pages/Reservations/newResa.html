@@ -1,6 +1,6 @@
 <div class="hero-scene text-center text-white">
     <div class="hero-scene-content">
-        <h1>Inscription</h1>
+        <h1>Nouvelle réservation</h1>
     </div>
 </div>
 <div class="container p-5 mx-auto" style="max-width: 500px;">
@@ -18,14 +18,15 @@
           <input type="email" class="form-control" id="EmailInput" placeholder="test@mail.fr" name="Email"> 
         </div>
         <div class="mb-4 text-center">
-          <label for="PasswordInput" class="form-label">Mot de passe</label>
-          <input type="password" class="form-control" id="PasswordInput" name="Password">
+          <label for="NbPersInput" class="form-label">Nombre de personnes</label>
+          <input type="number" class="form-control" id="NbPersInput" name="NbPers" min="1" max="10" value="2">
+        </div>
+        <div class="mb-4 text-center">
+          <label for="AllergyInput" class="form-label">Allergies</label>
+          <input type="text" class="form-control" id="AllergyInput" placeholder="Vos allergies" name="Allergy">
         </div>
         <div class="text-center pt-3">
-            <button type="submit" class="btn btn-primary">S'inscrire</button>
+            <button type="submit" class="btn btn-primary">Réserver</button>
         </div>
-        <div class="text-center pt-4">
-        <a class="text-secondary" href="/">Retour sur l'accueil</a>
-    </div>
     </form>
 </div>
