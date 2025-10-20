@@ -26,6 +26,34 @@ const LoadContentPage = async () => {
   const path = window.location.pathname;
   // Récupération de l'URL actuelle
   const actualRoute = getRouteByUrl(path);
+  // Vérification des autorisations d'accès à la route
+  const allRoleArray = actualRoute.authorize;
+
+  // Utilisateur déconnecté souhaitant se rendre sur la page réservation
+  if (actualRoute.url === "/newResa" && !isConnected()) {
+    alert("Vous devez être connecté pour faire une réservation. Vous allez être redirigé vers la page de connexion.");
+    window.location.href = "/signin";
+    return;
+  }
+
+
+  if (allRoleArray.length > 0) {
+    if(allRoleArray.includes("disconnected")) {
+      if(isConnected()) {
+        alert("Vous êtes déjà connecté.");
+        window.location.href = "/";
+        return;
+      }
+    }
+    else {
+      const roleUser = getRole();
+      if(!allRoleArray.includes(roleUser)) {
+        alert("Vous n'avez pas les droits d'accès à cette page.");
+        window.location.href = "/";
+        return;
+      }
+    }
+  }
   // Récupération du contenu HTML de la route
   const html = await fetch(actualRoute.pathHtml).then((data) => data.text());
   // Ajout du contenu HTML à l'élément avec l'ID "main-page"

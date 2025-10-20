@@ -14,7 +14,7 @@ function checkCredentials() {
         setFakeToken(fakeToken);
 
         // Rediriger vers la page d'accueil ou tableau de bord
-        setCookie(roleCookieName, "admin", 7); // Exemple de rôle Admin
+        setCookie(roleCookieName, "user", 7); // Exemple de rôle Admin
         window.location.href = "/";
     }
     else {
