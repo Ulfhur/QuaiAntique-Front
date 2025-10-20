@@ -36,7 +36,7 @@ const LoadContentPage = async () => {
     return;
   }
 
-
+  // Vérification des rôles pour l'accès à la route
   if (allRoleArray.length > 0) {
     if(allRoleArray.includes("disconnected")) {
       if(isConnected()) {
