@@ -28,14 +28,17 @@
         <li class="nav-item">
           <a class="nav-link active" href="/carte">La carte</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-show="connected">
           <a class="nav-link active" href="/allResa">Réservations</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-show="connected">
           <a class="nav-link active" href="/account">Mon compte</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/signin">Connexion/Déconnexion</a>
+        <li class="nav-item" data-show="disconnected">
+          <a class="nav-link active" href="/signin">Connexion</a>
+        </li>
+         <li class="nav-item" data-show="connected">
+          <button class="nav-link active" id="btn-signout">Déconnexion</button>
         </li>
     </div>
   </div>
@@ -66,8 +69,9 @@
                 </p>
             </div>
         </div>
-    </footer>  
+    </footer>
 
+    <script src="js/script.js"></script>
     <script type="module" src="./Router/router.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
