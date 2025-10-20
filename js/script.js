@@ -88,3 +88,12 @@ function showAndHideMenuItemsForRole() {
         }
     });
 }
+
+const spinnerWrapperEnd = document.querySelector('.spinner-wrapper');
+
+window.addEventListener('load', () => {
+    spinnerWrapperEnd.style.opacity = '0';
+    setTimeout(() => {
+        spinnerWrapperEnd.style.display = 'none';
+    }, 200);
+});
