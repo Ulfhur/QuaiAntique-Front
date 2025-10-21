@@ -97,3 +97,9 @@ window.addEventListener('load', () => {
         spinnerWrapperEnd.style.display = 'none';
     }, 200);
 });
+
+function sanitizeHtml(text) {
+    const tempHtml = document.createElement('div');
+    tempHtml.textContent = text;
+    return tempHtml.innerHTML;  
+}
