@@ -12,7 +12,7 @@ function signout() {
     eraseCookie(fakeTokenCookieName);
     eraseCookie(roleCookieName);
     alert("Vous êtes déconnecté. Retourn à la page d'accueil.");
-    window.location.href = "/";
+    globalThis.location.href = "/";
 }
 
 function setFakeToken(fakeToken) {
@@ -24,9 +24,9 @@ function getFakeToken() {
 }  
 
 function setCookie(name,value,days) {
-    var expires = "";
+    let expires = "";
     if (days) {
-        var date = new Date();
+        const date = new Date();
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
@@ -34,12 +34,12 @@ function setCookie(name,value,days) {
 }
 
 function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (const raw of ca) {
+        let c = raw;
+        while (c.startsWith(' ')) c = c.substring(1);
+        if (c.startsWith(nameEQ)) return c.substring(nameEQ.length);
     }
     return null;
 }
@@ -49,12 +49,7 @@ function eraseCookie(name) {
 }
 
 function isConnected() {
-    if(getFakeToken() == null || getFakeToken() == undefined) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return getFakeToken() != null;
 }
 
 function showAndHideMenuItemsForRole() {
@@ -63,7 +58,7 @@ function showAndHideMenuItemsForRole() {
 
     let elementsToShow = document.querySelectorAll('[data-show]');
 
-    elementsToShow.forEach(element => {
+    for (const element of elementsToShow) {
         switch(element.dataset.show){
             case 'disconnected':
                 if(userConnected) {
@@ -86,12 +81,12 @@ function showAndHideMenuItemsForRole() {
                 }
                 break;
         }
-    });
+    }
 }
 
 const spinnerWrapperEnd = document.querySelector('.spinner-wrapper');
 
-window.addEventListener('load', () => {
+globalThis.addEventListener('load', () => {
     spinnerWrapperEnd.style.opacity = '0';
     setTimeout(() => {
         spinnerWrapperEnd.style.display = 'none';
